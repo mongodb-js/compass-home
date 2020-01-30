@@ -1,14 +1,16 @@
 const webpackConfig = require('./config/webpack.karma.config');
 
-module.exports = (config) => {
+module.exports = function(config) {
   config.set({
     basePath: '',
     singleRun: true,
     files: [
-      'test/karma-setup.js',
+      'test/**/*.spec.js'
     ],
     reporters: ['mocha'],
-    preprocessors: { 'test/karma-setup.js': ['webpack', 'sourcemap'] },
+    preprocessors: {
+      'test/**/*.spec.js': ['webpack', 'sourcemap']
+    },
     browsers: ['Compass'],
     frameworks: ['mocha', 'chai', 'sinon', 'chai-sinon'],
     webpack: webpackConfig,
