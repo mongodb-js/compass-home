@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AppRegistry from 'hadron-app-registry';
 import SidebarPlugin from '@mongodb-js/compass-sidebar';
+import ShellPlugin from '@mongodb-js/compass-shell';
 
 import classnames from 'classnames';
 import styles from './home.less';
@@ -31,6 +32,8 @@ describe('Home [Component]', () => {
 
 
     global.hadronApp.appRegistry.registerComponent('Sidebar.Component', SidebarPlugin);
+    global.hadronApp.appRegistry.registerComponent('Global.Shell', ShellPlugin);
+    // TODO: Register the shell here and pull it into the tests.
     [
       'Collection.Workspace', 'Database.Workspace', 'Instance.Workspace', 'Find',
       'Global.Modal', 'Application.Connect'
@@ -102,6 +105,9 @@ describe('Home [Component]', () => {
       it('renders the global', () => {
         expect(component.find('.Global')).to.be.present();
       });
+      it('renders the shell plugin', () => {
+        expect(component.find(ShellPlugin)).to.be.present();
+      });
     });
     describe('UI status is error', () => {
       beforeEach(() => {
@@ -141,6 +147,9 @@ describe('Home [Component]', () => {
       it('renders the global', () => {
         expect(component.find('.Global')).to.be.present();
       });
+      it('renders the shell plugin', () => {
+        expect(component.find(ShellPlugin)).to.be.present();
+      });
     });
     describe('UI status is complete', () => {
       describe('namespace is unset', () => {
@@ -175,6 +184,9 @@ describe('Home [Component]', () => {
         it('renders the global', () => {
           expect(component.find('.Global')).to.be.present();
         });
+        it('renders the shell plugin', () => {
+          expect(component.find(ShellPlugin)).to.be.present();
+        });
       });
       describe('namespace is only DB', () => {
         beforeEach(() => {
@@ -207,6 +219,9 @@ describe('Home [Component]', () => {
         });
         it('renders the global', () => {
           expect(component.find('.Global')).to.be.present();
+        });
+        it('renders the shell plugin', () => {
+          expect(component.find(ShellPlugin)).to.be.present();
         });
       });
       describe('namespace is db and coll', () => {
@@ -241,6 +256,9 @@ describe('Home [Component]', () => {
         it('renders the global', () => {
           expect(component.find('.Global')).to.be.present();
         });
+        it('renders the shell plugin', () => {
+          expect(component.find(ShellPlugin)).to.be.present();
+        });
       });
       describe('isCollapsed is true', () => {
         beforeEach(() => {
@@ -273,6 +291,9 @@ describe('Home [Component]', () => {
         });
         it('renders the global', () => {
           expect(component.find('.Global')).to.be.present();
+        });
+        it('renders the shell plugin', () => {
+          expect(component.find(ShellPlugin)).to.be.present();
         });
       });
       describe('toggleIsCollapsed', () => {
