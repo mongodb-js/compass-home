@@ -33,7 +33,6 @@ describe('Home [Component]', () => {
 
     global.hadronApp.appRegistry.registerComponent('Sidebar.Component', SidebarPlugin);
     global.hadronApp.appRegistry.registerComponent('Global.Shell', ShellPlugin);
-    // TODO: Register the shell here and pull it into the tests.
     [
       'Collection.Workspace', 'Database.Workspace', 'Instance.Workspace', 'Find',
       'Global.Modal', 'Application.Connect'
