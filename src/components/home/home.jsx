@@ -208,10 +208,10 @@ class Home extends PureComponent {
           </div>
           {this.renderSidebar()}
           {this.renderFindInPage()}
-          {this.renderGlobalModals()}
-          {this.renderGlobalWarnings()}
-          {this.renderGlobalShell()}
         </div>
+        {this.renderGlobalModals()}
+        {this.renderGlobalWarnings()}
+        {this.renderGlobalShell()}
       </div>
     );
   }
