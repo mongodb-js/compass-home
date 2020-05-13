@@ -101,11 +101,11 @@ describe('Home [Component]', () => {
       it('renders the find', () => {
         expect(component.find('.Find')).to.be.present();
       });
-      it('renders the global', () => {
-        expect(component.find('.Global')).to.be.present();
-      });
       it('renders the shell plugin', () => {
         expect(component.find(ShellPlugin)).to.be.present();
+      });
+      it('renders the global', () => {
+        expect(component.find('.Global')).to.be.present();
       });
     });
     describe('UI status is error', () => {
@@ -180,11 +180,11 @@ describe('Home [Component]', () => {
         it('renders the find', () => {
           expect(component.find('.Find')).to.be.present();
         });
-        it('renders the global', () => {
-          expect(component.find('.Global')).to.be.present();
-        });
         it('renders the shell plugin', () => {
           expect(component.find(ShellPlugin)).to.be.present();
+        });
+        it('renders the global', () => {
+          expect(component.find('.Global')).to.be.present();
         });
       });
       describe('namespace is only DB', () => {
@@ -216,11 +216,11 @@ describe('Home [Component]', () => {
         it('renders the find', () => {
           expect(component.find('.Find')).to.be.present();
         });
-        it('renders the global', () => {
-          expect(component.find('.Global')).to.be.present();
-        });
         it('renders the shell plugin', () => {
           expect(component.find(ShellPlugin)).to.be.present();
+        });
+        it('renders the global', () => {
+          expect(component.find('.Global')).to.be.present();
         });
       });
       describe('namespace is db and coll', () => {
@@ -288,11 +288,11 @@ describe('Home [Component]', () => {
         it('renders the find', () => {
           expect(component.find('.Find')).to.be.present();
         });
-        it('renders the global', () => {
-          expect(component.find('.Global')).to.be.present();
-        });
         it('renders the shell plugin', () => {
           expect(component.find(ShellPlugin)).to.be.present();
+        });
+        it('renders the global', () => {
+          expect(component.find('.Global')).to.be.present();
         });
       });
       describe('toggleIsCollapsed', () => {
