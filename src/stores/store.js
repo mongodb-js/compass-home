@@ -40,8 +40,7 @@ store.onActivated = (appRegistry) => {
     }
     const connection = ds.client.model;
 
-    const connectionTitle = buildConnectionTitle(connection);
-    store.dispatch(changeConnectionTitle(connectionTitle));
+    store.dispatch(changeConnectionTitle(connection.title || ''));
 
     const StatusAction = appRegistry.getAction('Status.Actions');
     if (StatusAction) {
@@ -92,22 +91,3 @@ store.subscribe(() => {
 });
 
 export default store;
-
-function buildConnectionTitle(connection) {
-  if (connection.isFavorite && connection.name) {
-    return connection.name;
-  }
-
-  if (connection.isSrvRecord) {
-    return connection.hostname;
-  }
-
-  if (connection.hosts) {
-    return connection.hosts.map(
-      ({ host, port }) => `${host}:${port}`
-    ).join(',');
-  }
-
-  return '';
-}
-
