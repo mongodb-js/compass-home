@@ -113,7 +113,7 @@ describe('HomeStore [Store]', () => {
         global.hadronApp.appRegistry.emit('data-service-connected', null, {
           get: () => {},
           client: {
-            model: { connectionTitle: 'test_id', hostname: 'mongodb.net' }
+            model: { title: 'test_id', hostname: 'mongodb.net' }
           }
         });
         expect(store.getState()).to.deep.equal({
@@ -158,13 +158,22 @@ describe('HomeStore [Store]', () => {
     context('on database-changed', () => {
       beforeEach(() => {
         expect(store.getState()).to.deep.equal(initialState);
+        global.hadronApp.appRegistry.emit('data-service-connected', null, {
+          get: () => {},
+          client: {
+            model: { title: 'test_id', hostname: 'mongodb.net' }
+          }
+        });
+
+        expect(store.getState().title).to.equal(' - test_id');
+
         global.hadronApp.appRegistry.emit('select-database', 'test.coll');
       });
       it('dispatches the change namespace action', () => {
         expect(store.getState().namespace).to.equal('test.coll');
       });
       it('dispatches the changetitle action', () => {
-        expect(store.getState().title).to.equal(' - /test.coll');
+        expect(store.getState().title).to.equal(' - test_id/test.coll');
       });
     });
   });
